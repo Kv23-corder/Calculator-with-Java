@@ -1,1 +1,143 @@
-Hello wolrd!
+# Java Swing Calculator
+
+A fully functional GUI calculator built with Java Swing, styled after the iOS calculator with a dark theme and orange accent buttons.
+
+
+---
+
+## Preview
+
+The calculator features a clean dark interface with three button styles:
+- 🔘 **Light gray** — utility buttons (AC, +/-, %)
+- 🟠 **Orange** — operator buttons (/, x, -, +, =)
+- ⚫ **Dark gray** — digit buttons (0–9, .)
+
+---
+
+## Features
+
+- Basic arithmetic: **addition**, **subtraction**, **multiplication**, **division**
+- **Percentage** conversion (`%` divides the current value by 100)
+- **Sign toggle** (`+/-` negates the current value)
+- **All Clear** (`AC`) resets the calculator state
+- **Power** button (`^`) — UI placeholder (logic extendable)
+- Automatic decimal cleanup — e.g. `5.0` displays as `5`
+- iOS-inspired dark theme using Java Swing
+
+---
+
+## Prerequisites
+
+- Java Development Kit (JDK) **8 or higher**
+- No external libraries required — uses only the Java standard library
+
+---
+
+## Project Structure
+
+```
+java-calculator/
+├── src/
+│   ├── Calculator.java   # Main calculator UI and logic
+│   └── Main.java         # Entry point
+└── README.md
+```
+
+---
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/java-calculator.git
+cd java-calculator
+```
+
+### 2. Compile
+
+```bash
+javac src/Calculator.java src/Main.java -d out/
+```
+
+### 3. Run
+
+```bash
+java -cp out Main
+```
+
+> **Note:** `Main.java` should instantiate the calculator:
+> ```java
+> public class Main {
+>     public static void main(String[] args) {
+>         new Calculator();
+>     }
+> }
+> ```
+
+---
+
+## How It Works
+
+The calculator uses a simple **A operator B = result** model:
+
+| Variable   | Role                                         |
+|------------|----------------------------------------------|
+| `A`        | First operand (stored when operator is pressed) |
+| `operator` | The selected operation (`+`, `-`, `x`, `/`)  |
+| `B`        | Second operand (read from display on `=`)    |
+
+### Button Layout (5×4 Grid)
+
+| AC  | +/- | %   |  /  |
+|-----|-----|-----|-----|
+|  7  |  8  |  9  |  x  |
+|  4  |  5  |  6  |  -  |
+|  1  |  2  |  3  |  +  |
+|  0  |  .  |  ^  |  =  |
+
+---
+
+## Supported Operations
+
+| Button | Action                          | Example          |
+|--------|---------------------------------|------------------|
+| `+`    | Addition                        | 8 + 2 = 10       |
+| `-`    | Subtraction                     | 8 - 2 = 6        |
+| `x`    | Multiplication                  | 8 x 2 = 16       |
+| `/`    | Division                        | 8 / 2 = 4        |
+| `%`    | Converts to percentage          | 50 % → 0.5       |
+| `+/-`  | Toggles positive/negative sign  | 5 → -5           |
+| `AC`   | Clears all state                | Resets to 0      |
+
+---
+
+## Known Limitations & Possible Improvements
+
+- **`^` (power)** button is present in the UI but has no logic — can be implemented using `Math.pow(numA, numB)`
+- Uses `==` for String comparison in some places — can be refactored to `.equals()` for correctness
+- No keyboard input support — can be added via `KeyListener`
+- Division by zero returns `Infinity` — could show an error message instead
+- Display does not scroll for very long numbers
+
+---
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m "Add your feature"`
+4. Push: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
+
+Kavindi — [GitHub](https://github.com/Kv23-corder)
